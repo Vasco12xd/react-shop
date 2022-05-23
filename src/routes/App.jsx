@@ -3,21 +3,25 @@ completa para los snippets si es que no les resulta
 el imr ocupen el comando “rafce” para crear el componente.*/
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import React from 'react';
-import Layout from '../containers/Layout';
-import Login from '../pages/Login';
-import Home from "../pages/Home";
-import NotFound from '../pages/NotFound';
-import SendEmail from '../pages/SendEmail';
-import NewPassword from '../pages/NewPassword';
-import MyAccount from '../pages/MyAccount';
-import CreateAccount from '../pages/CreateAccount';
-import Checkout from '../pages/Checkout';
-import Orders from '../pages/Orders';
-import RecoveryPassword from '../pages/recoveryPassword';
-import '../styles/global.css';
+import Layout from '@containers/Layout';
+import Login from '@pages/Login';
+import Home from "@pages/Home";
+import NotFound from '@pages/NotFound';
+import SendEmail from '@pages/SendEmail';
+import NewPassword from '@pages/NewPassword';
+import MyAccount from '@pages/MyAccount';
+import CreateAccount from '@pages/CreateAccount';
+import Checkout from '@pages/Checkout';
+import Orders from '@pages/Orders';
+import RecoveryPassword from '@pages/recoveryPassword';
+import '@styles/global.css';
+import useInitialState from '../hooks/useInitialState';
+import AppContext from '../context/AppContext';
 
 const App = () => {
+	const initialState = useInitialState();
   return (
+	<AppContext.Provider value={initialState}>
     <BrowserRouter>
 	<Layout>
 		<Routes>
@@ -34,6 +38,7 @@ const App = () => {
 		</Routes>
 	</Layout>
 </BrowserRouter> 
+</AppContext.Provider>
   )
 }
 
