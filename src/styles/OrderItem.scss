@@ -15,7 +15,13 @@
 	height: 70px;
 	border-radius: 20px;
 	object-fit: cover;
+	cursor: default;
 }
+
+.OrderItem img {
+	cursor: pointer;
+}
+
 .OrderItem p:nth-child(2) {
 	color: var(--very-light-pink);
 }
